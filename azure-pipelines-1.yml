@@ -8,11 +8,7 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
-trigger:
-- master
 
-pool:
-  vmImage: ubuntu-latest
 variables:
 - group: Semgrep app token group
 
@@ -23,7 +19,8 @@ steps:
     semgrep ci
   env:
     SEMGREP_PR_ID: $(System.PullRequest.PullRequestNumber)
-steps:
+
+
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
