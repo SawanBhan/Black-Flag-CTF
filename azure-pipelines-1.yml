@@ -12,7 +12,22 @@ pool:
 variables:
 - group: Semgrep app token group
 
-steps:
+
+steps: 
+- script: |
+    sudo apt-get install rpm
+    wget https://github.com/aquasecurity/trivy/releases/download/v$(trivyVersion)/trivy_$(trivyVersion)_Linux-64bit.deb
+    sudo dpkg -i trivy_$(trivyVersion)_Linux-64bit.deb
+    trivy -v
+
+
+- task: CmdLine@2
+  displayName: "Run trivy scan"
+  inputs:
+    script: |
+      trivy image mysql
+
+
 - script: |
     python -m pip install --upgrade pip
     pip install semgrep
