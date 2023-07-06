@@ -26,6 +26,12 @@ steps:
     script: |
       trivy image mysql
 
+- task: CmdLine@2
+  displayName: "Run trivy scan"
+  inputs:
+    script: |
+      trivy image --exit-code 0 --severity LOW,MEDIUM mysql
+      trivy image --exit-code 1 --severity HIGH,CRITICAL mysql
 
 - script: |
     python -m pip install --upgrade pip
