@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  trivy: ubuntu-latest
+  trivy: sawan
 
 variables:
 - group: Semgrep app token group
