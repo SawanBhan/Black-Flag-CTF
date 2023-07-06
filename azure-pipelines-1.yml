@@ -6,7 +6,7 @@
 trigger:
 - master
 
-pool: sawan
+pool: trivynew
 
 variables:
 - group: Semgrep app token group
