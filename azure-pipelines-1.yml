@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  trivy: sawan
+  trivy: 6.1.0-kali9-amd64
 
 variables:
 - group: Semgrep app token group
