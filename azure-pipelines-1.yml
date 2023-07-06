@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: ubuntu-latest
+  trivy: ubuntu-latest
 
 variables:
 - group: Semgrep app token group
