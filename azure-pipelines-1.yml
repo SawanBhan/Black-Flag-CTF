@@ -22,26 +22,3 @@ steps:
   inputs:
     script: |
       trivy image --server http://192.168.104.9:8441 python
-
-- task: CmdLine@2
-  displayName: "Run trivy scan"
-  inputs:
-    script: |
-      trivy image --server http://192.168.104.9:8441 --exit-code 0 --severity LOW,MEDIUM python
-      trivy image --server http://192.168.104.9:8441 --exit-code 0 --severity HIGH,CRITICAL python
-
-- script: |
-    python -m pip install --upgrade pip
-    pip install semgrep
-    semgrep ci
-  env:
-    SEMGREP_PR_ID: $(System.PullRequest.PullRequestNumber)
-
-
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
