@@ -21,4 +21,4 @@ steps:
   displayName: "Run trivy scan"
   inputs:
     script: |
-      trivy image --server http://192.168.104.9:8441 python
+      trivy image --server http://192.168.104.9:8441 redis
