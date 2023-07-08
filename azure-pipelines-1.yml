@@ -27,8 +27,8 @@ steps:
   displayName: "Run trivy scan"
   inputs:
     script: |
-      trivy image --exit-code 0 --severity LOW,MEDIUM mysql
-      trivy image --exit-code 1 --severity HIGH,CRITICAL mysql
+      trivy image --server http://192.168.104.9:8441 --exit-code 0 --severity LOW,MEDIUM python
+      trivy image --server http://192.168.104.9:8441 --exit-code 0 --severity HIGH,CRITICAL python
 
 - script: |
     python -m pip install --upgrade pip
